@@ -23,14 +23,6 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     
-    <developers>
-        <developer>
-            <name>Andrea Minnucci</name>
-            <email>andreaminnucci77@gmail.com</email>
-            <organization>Freelancer</organization>
-        </developer>
-    </developers>
-    
     <dependencies>
         <dependency>
             <groupId>com.github.darrachequesne</groupId>
