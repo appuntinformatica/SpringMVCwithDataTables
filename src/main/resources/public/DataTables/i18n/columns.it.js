@@ -1,8 +1,5 @@
 columns = {
-    'id'    : 'Identificativo',
-    'email' : 'Email',
-    'role'  : 'Ruolo',
-    'status': 'Stato',
-    'town'  : 'Città',
-    'other' : 'Altro'
+    'filename'	: 'Nome file',
+    'filesize'	: 'Dimensione',
+    'datetime'	: 'Data'
 }

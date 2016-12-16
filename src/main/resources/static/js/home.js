@@ -34,74 +34,23 @@ $(document).ready(function() {
     
     $.get( '/DataTables/i18n/columns.' + lang + '.js', function( data ) {
         var columms = eval(data);
-        
     
-    
-   
-    
-    var table = $('#datatable').DataTable({
-        'ajax' : '/data/users',
-        'serverSide' : true,
-        'language': {
-            "url": "/DataTables/i18n/DataTables." + lang + ".json"
-        },
-        columns : [ {
-            data : 'id',
-            title : columms['id']
-        }, {
-            data : 'mail',
-            title : columms['email']
-        }, {
-            data : 'role',
-            title : columms['role']
-        }, {
-            data : 'status',
-            title : columms['status']
-        }, {
-            data : 'home.town',
-            title :  columms['town'],
-            render : function(data, type, row) {
-                if (row.home) {
-                    return row.home.town;
-                }
-                return '';
-            }
-        }, {
-            // add another column not persisted on the server-side
-            data : 'anothercolumn',
-            title :  columms['other'],
-            // order is not available
-            orderable : false,
-            // yet filter should be available through the method
-            // findAll(DataTablesInput input, Specification<T>
-            // additionalSpecification)
-            searchable : false,
-            render : function(data, type, row) {
-                if (row.role && row.status) {
-                    return row.role + ' and ' + row.status;
-                }
-                return '';
-            }
-        } ]
+        var table = $('#datatable').DataTable({
+            'ajax' : '/list',
+            'serverSide' : true,
+            'language': {
+                "url": "/DataTables/i18n/DataTables." + lang + ".json"
+            },
+            columns : [ {
+                data : 'filename',
+                title : columms['filename']
+            }, {
+                data : 'filesize',
+                title : columms['filesize']
+            }, {
+                data : 'datetime',
+                title : columms['datetime']
+            }]
+        });    
     });
-
-    $('select#role_selector').change(function() {
-        var filter = '';
-        $('select#role_selector option:selected').each(function() {
-            filter += $(this).text() + "+";
-        });
-        filter = filter.substring(0, filter.length - 1);
-        table.columns(2).search(filter).draw();
-    });
-
-    $('select#status_selector').change(function() {
-        var filter = '';
-        $('select#status_selector option:selected').each(function() {
-            filter += $(this).text() + "+";
-        });
-        filter = filter.substring(0, filter.length - 1);
-        table.columns(3).search(filter).draw();
-    });
-    
-     });
 });

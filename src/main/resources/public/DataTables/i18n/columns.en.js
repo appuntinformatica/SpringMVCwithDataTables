@@ -1,8 +1,5 @@
 columns = {
-    'id'	: 'Identifier',
-    'email'	: 'Email',
-    'role'	: 'Role',
-    'status': 'State',
-    'town'	: 'Town',
-    'other'	: 'Other'
+    'filename'	: 'Filename',
+    'filesize'	: 'Size',
+    'datetime'	: 'Datetime'
 }
